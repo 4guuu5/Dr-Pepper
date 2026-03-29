@@ -29,21 +29,23 @@ export const Flavors = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-24">
             {FLAVORS.map((flavor, index) => (
-              <motion.div
+              <motion.article
                 key={flavor.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
+                aria-labelledby={`flavor-title-${flavor.id}`}
               >
                 <div className="flex-1 relative">
                   <div 
                     className="absolute inset-0 rounded-full blur-3xl opacity-20"
                     style={{ backgroundColor: flavor.color }}
+                    aria-hidden="true"
                   />
                   <img 
                     src={flavor.image} 
-                    alt={flavor.name}
+                    alt={`${flavor.name} product shot`}
                     className="relative z-10 w-full max-w-md mx-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
@@ -52,18 +54,18 @@ export const Flavors = () => {
                   <span className="text-sm font-bold text-drpepper-red uppercase tracking-[0.3em] mb-4 block">
                     {flavor.tagline}
                   </span>
-                  <h2 className="text-4xl md:text-6xl font-black text-drpepper-maroon italic transform -skew-x-12 mb-6 uppercase">
+                  <h2 id={`flavor-title-${flavor.id}`} className="text-4xl md:text-6xl font-black text-drpepper-maroon italic transform -skew-x-12 mb-6 uppercase">
                     {flavor.name}
                   </h2>
                   <p className="text-lg text-drpepper-maroon/70 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
                     {flavor.description}
                   </p>
                   <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                    <button className="btn-primary">Find Near You</button>
-                    <button className="btn-secondary">Nutrition Facts</button>
+                    <button className="btn-primary focus-visible:outline-drpepper-maroon">Find Near You</button>
+                    <button className="btn-secondary focus-visible:outline-drpepper-maroon">Nutrition Facts</button>
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>

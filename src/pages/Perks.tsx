@@ -65,21 +65,43 @@ export const Perks = () => {
               <h3 className="text-2xl font-black italic transform -skew-x-6 mb-6">CREATE ACCOUNT</h3>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2">Full Name</label>
-                  <input type="text" className="w-full bg-drpepper-cream border-none rounded-xl p-4 focus:ring-2 focus:ring-drpepper-red outline-none" placeholder="John Pepper" />
+                  <label htmlFor="full-name" className="block text-xs font-bold uppercase tracking-widest mb-2">Full Name</label>
+                  <input 
+                    id="full-name"
+                    type="text" 
+                    autoComplete="name"
+                    required
+                    className="w-full bg-drpepper-cream border-none rounded-xl p-4 focus:ring-2 focus:ring-drpepper-red outline-none focus-visible:ring-2" 
+                    placeholder="John Pepper" 
+                  />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2">Email Address</label>
-                  <input type="email" className="w-full bg-drpepper-cream border-none rounded-xl p-4 focus:ring-2 focus:ring-drpepper-red outline-none" placeholder="john@example.com" />
+                  <label htmlFor="email" className="block text-xs font-bold uppercase tracking-widest mb-2">Email Address</label>
+                  <input 
+                    id="email"
+                    type="email" 
+                    autoComplete="email"
+                    required
+                    className="w-full bg-drpepper-cream border-none rounded-xl p-4 focus:ring-2 focus:ring-drpepper-red outline-none focus-visible:ring-2" 
+                    placeholder="john@example.com" 
+                  />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-widest mb-2">Password</label>
-                  <input type="password" className="w-full bg-drpepper-cream border-none rounded-xl p-4 focus:ring-2 focus:ring-drpepper-red outline-none" placeholder="••••••••" />
+                  <label htmlFor="password" className="block text-xs font-bold uppercase tracking-widest mb-2">Password</label>
+                  <input 
+                    id="password"
+                    type="password" 
+                    autoComplete="new-password"
+                    required
+                    minLength={8}
+                    className="w-full bg-drpepper-cream border-none rounded-xl p-4 focus:ring-2 focus:ring-drpepper-red outline-none focus-visible:ring-2" 
+                    placeholder="••••••••" 
+                  />
                 </div>
-                <button className="w-full btn-primary mt-4">Join Now</button>
+                <button type="submit" className="w-full btn-primary mt-4 focus-visible:outline-drpepper-maroon">Join Now</button>
               </form>
               <p className="text-center text-xs text-drpepper-maroon/50 mt-6">
-                By joining, you agree to our Terms and Privacy Policy.
+                By joining, you agree to our <a href="#" className="underline hover:text-drpepper-red focus-visible:text-drpepper-red">Terms</a> and <a href="#" className="underline hover:text-drpepper-red focus-visible:text-drpepper-red">Privacy Policy</a>.
               </p>
             </motion.div>
           </div>

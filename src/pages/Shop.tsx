@@ -44,10 +44,11 @@ export const Shop = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" role="list" aria-label="Products">
           {[...MERCH, ...MERCH].map((item, i) => (
-            <motion.div 
+            <motion.article 
               key={`${item.id}-${i}`}
+              role="listitem"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: (i % 4) * 0.1 }}
@@ -62,8 +63,8 @@ export const Shop = () => {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 right-4">
-                  <button className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm text-drpepper-maroon flex items-center justify-center hover:bg-drpepper-red hover:text-white transition-colors shadow-lg">
-                    <Star size={18} />
+                  <button className="w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm text-drpepper-maroon flex items-center justify-center hover:bg-drpepper-red hover:text-white transition-colors shadow-lg focus-visible:outline-drpepper-maroon" aria-label={`Add ${item.name} to favorites`}>
+                    <Star size={18} aria-hidden="true" />
                   </button>
                 </div>
                 {i === 0 && (
@@ -77,13 +78,13 @@ export const Shop = () => {
                 <h3 className="text-lg font-black text-drpepper-maroon mb-4 group-hover:text-drpepper-red transition-colors">{item.name}</h3>
                 <div className="flex justify-between items-center">
                   <span className="text-xl font-bold text-drpepper-maroon">${item.price.toFixed(2)}</span>
-                  <button className="btn-primary !px-4 !py-3 !text-[10px] flex items-center space-x-2">
-                    <ShoppingBag size={14} />
+                  <button className="btn-primary !px-4 !py-3 !text-[10px] flex items-center space-x-2 focus-visible:outline-drpepper-maroon">
+                    <ShoppingBag size={14} aria-hidden="true" />
                     <span>Add to Bag</span>
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
