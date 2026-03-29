@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-drpepper-maroon: #711F25;
+  --color-drpepper-red: #C8102E;
+  --color-drpepper-cream: #F5F2ED;
+  --font-display: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F5F2ED] text-[#1a1a1a] font-sans selection:bg-drpepper-maroon selection:text-white;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.btn-primary {
+  @apply bg-drpepper-maroon text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-drpepper-red transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg;
+}
+
+.btn-secondary {
+  @apply border-2 border-drpepper-maroon text-drpepper-maroon px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-drpepper-maroon hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95;
+}
